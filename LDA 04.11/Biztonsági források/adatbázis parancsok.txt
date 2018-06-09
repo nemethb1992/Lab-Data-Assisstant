@@ -1,0 +1,51 @@
+CREATE TABLE `cikk` (
+	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`cikkszam`		TEXT NOT NULL,
+	`szallito`		TEXT NOT NULL,
+	`anyag_nev`		TEXT NOT NULL,
+	`anyag_tipus`		TEXT NOT NULL,
+	`profit_center`		TEXT NOT NULL,
+	`utomun_metszve`	TEXT NOT NULL,
+	`folykep_homerseklet`	TEXT NOT NULL,
+	`utokapalacs_meret_j`	TEXT NOT NULL,
+	`folyokep_terheles_kg`	TEXT NOT NULL,
+	`suruseg`		TEXT NOT NULL,
+	`szin`			TEXT NOT NULL,
+	`szakszig_min`		NUMERIC NOT NULL,
+	`szakszig_max`		NUMERIC NOT NULL,
+	`utesallosag_min`	NUMERIC NOT NULL,
+	`utesallosag_max`	NUMERIC NOT NULL,
+	`folyokep_min_g`	NUMERIC NOT NULL,
+	`folyokep_max_g`	NUMERIC NOT NULL,
+	`folyokep_min_cm`	NUMERIC NOT NULL,
+	`folyokep_max_cm`	NUMERIC NOT NULL,
+	`toltoanyag_min`	NUMERIC NOT NULL,
+	`toltoanyag_max`	NUMERIC NOT NULL
+);
+
+CREATE TABLE `charge` (
+	`charge_id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`cikkszam`	TEXT NOT NULL,
+	`charge`	TEXT NOT NULL,
+	`beerk_datum`	TEXT NOT NULL,
+	`ut_meres_datum`	TEXT NOT NULL,
+	`kw`	TEXT NOT NULL,
+	`allapot`	TEXT NOT NULL,
+	`viztartalom`	NUMERIC,
+	`szakszig`	NUMERIC,
+	`szakszig_gy`	NUMERIC,
+	`utesallosag`	NUMERIC,
+	`utesallosag_gy`	NUMERIC,
+	`folyokep_g`	NUMERIC,
+	`folyokep_g_gy`	NUMERIC,
+	`folyokep_cm`	NUMERIC,
+	`folyokep_cm_gy`	NUMERIC,
+	`toltoanyag`	NUMERIC,
+	`toltoanyag_gy`	NUMERIC,
+	`megjegyzes`	TEXT
+);
+
+CREATE TABLE `beszallitok` (
+	`beszallito_id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`nev`	TEXT NOT NULL
+);

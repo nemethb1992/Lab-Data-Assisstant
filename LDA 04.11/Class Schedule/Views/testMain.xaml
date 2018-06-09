@@ -1,0 +1,300 @@
+﻿<UserControl x:Class="Class_Schedule.Views.testMain"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Class_Schedule.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="770" d:DesignWidth="1100">
+    <Grid>
+        <!--<Label Content="Lab Data Assistant" Style="{StaticResource bigSignLabel}" Margin="100,15,0,0"/>-->
+        <!--<Grid x:Name="logo_grid" Style="{StaticResource logo_grid}" HorizontalAlignment="Left" Height="65" VerticalAlignment="Top"  Width="65" Margin="20,15,0,0">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Class Schedule;component/Assets/db.png"/>
+            </Grid.Background>
+        </Grid>-->
+
+        <TextBlock Text="" x:Name="main_info_out" TextAlignment="Left" Style="{StaticResource infoTbl}" Margin="477,83,286,645.6" Width="337" Height="41"/>
+        <Button x:Name="mainpageBackBtn" Panel.ZIndex="9999" Content="Kijelentkezés" Style="{StaticResource logoutBtn}" Margin="949,94,21,645.6" Click="mainpageBackBtn_Click" Height="30" Width="130"/>
+        <TabControl HorizontalAlignment="Left" Style="{StaticResource tabControl}" Height="657" Margin="23,93,0,0" VerticalAlignment="Top" Width="1055">
+            <TabItem x:Name="tab1" Header="Mérési napló" Style="{StaticResource tabIStyle}" Height="30" Margin="0,0,0,-2">
+                <Grid>
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="White" Offset="0"/>
+                            <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                            <GradientStop Color="#FFF0F0F0" Offset="0.479"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <ListView x:Name="listView_4" Style="{StaticResource style_listView}" HorizontalAlignment="Center" Height="512" Margin="25,85,24,0" VerticalAlignment="Top" Width="1000"  SelectionChanged="listView_4_SelectionChanged_1">
+                        <ListView.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="White" Offset="0"/>
+                                <GradientStop Color="WhiteSmoke" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ListView.Background>
+                        <ListView.View>
+                            <GridView  AllowsColumnReorder="true" ColumnHeaderToolTip="nyitottlist">
+                                <GridViewColumn Header="Cikkszám" Width="100"  DisplayMemberBinding="{Binding col1}" />
+                                <GridViewColumn Header="Charge" Width="100" DisplayMemberBinding="{Binding col2}" />
+                                <GridViewColumn Header="Szállító" Width="210" DisplayMemberBinding="{Binding col3}" />
+                                <GridViewColumn Header="Anyagnév" Width="300" DisplayMemberBinding="{Binding col4}" />
+                                <GridViewColumn Header="Anyag típus" Width="100" DisplayMemberBinding="{Binding col5}" />
+                                <GridViewColumn Header="KW" Width="40" DisplayMemberBinding="{Binding col6}" />
+                                <GridViewColumn Header="Beérk. dátum" Width="120" DisplayMemberBinding="{Binding col7}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Label x:Name="t1_charge" Content="Charge" Margin="131,17,0,0" Style="{StaticResource labelStyle}" Width="97"/>
+                    <Label x:Name="t1_cikk" Content="Cikkszám" Margin="25,17,0,0" Style="{StaticResource labelStyle}" Width="97"/>
+                    <TextBox x:Name="input_cikkszam" HorizontalAlignment="Left" Height="25" Margin="25,36,0,0" Style="{StaticResource tbxStyle}" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="85" TextChanged="input_cikkszam_TextChanged" />
+                    <TextBox x:Name="input_charge" HorizontalAlignment="Left" Height="25" Margin="130,36,0,0" Style="{StaticResource tbxStyle}" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="85" TextChanged="input_charge_TextChanged"  />
+                    <TextBox x:Name="input_szallito" HorizontalAlignment="Left" Height="25" Margin="235,36,0,0" Style="{StaticResource tbxStyle}" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" TextChanged="input_szallito_TextChanged"   />
+                    <TextBox x:Name="input_anyagnev" HorizontalAlignment="Left" Height="25" Margin="440,36,0,0" Style="{StaticResource tbxStyle}" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="265" TextChanged="input_anyagnev_TextChanged"   />
+                    <TextBox x:Name="input_beerk_datum" HorizontalAlignment="Left" Height="25" Margin="725,36,0,0" Style="{StaticResource tbxStyle}" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="input_beerk_datum_TextChanged"   />
+                    <!--<TextBox x:Name="input_" HorizontalAlignment="Left" Height="23" Margin="123,35,0,0" Style="{StaticResource tbxStyle}" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="97"  />-->
+                    <RadioButton x:Name="nyitott_cbox" FontSize="13" Content="Nyitott" HorizontalAlignment="Left" Margin="867,18,0,0" IsChecked="True" VerticalAlignment="Top" Foreground="#FF616161" BorderBrush="#FF6C6C6C" Checked="nyitott_cbox_Checked"/>
+                    <RadioButton x:Name="lezart_cbox" FontSize="13" Content="Lezárt" HorizontalAlignment="Left" Margin="867,41,0,0" VerticalAlignment="Top" Foreground="#FF616161" BorderBrush="#FF6C6C6C" Checked="lezart_cbox_Checked"/>
+                    <Label x:Name="t1_beerk" Content="Beérkezés Dátum" Margin="725,17,0,0" Style="{StaticResource labelStyle}" Width="107"/>
+                    <Label x:Name="t1_anyagnev" Content="Anyagnév" Margin="440,17,0,0" Style="{StaticResource labelStyle}" Width="192" />
+                    <Label x:Name="t1_szallito" Content="Szállító" Margin="235,17,0,0" Style="{StaticResource labelStyle}" Width="97"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tab2" Header="Módosítás" Height="30" Margin="0,1,0,-1" Style="{StaticResource tabIStyle}">
+                <Grid>
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="White" Offset="0"/>
+                            <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                            <GradientStop Color="#FFF0F0F0" Offset="0.479"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <TextBox x:Name="in1_cikkszam" Margin="50,40,0,0" Style="{StaticResource tbxStyle}" Width="200" TextChanged="in1_cikkszam_TextChanged"  />
+                    <TextBox x:Name="in1_charge" Margin="280,40,0,0" Style="{StaticResource tbxStyle}" Width="200" TextChanged="in1_charge_TextChanged"  />
+                    <TextBox x:Name="in1_szallito" Margin="50,110,0,0" Style="{StaticResource tbxStyle}" />
+                    <TextBox x:Name="in1_anyag_tipus" Margin="280,110,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in1_anyagnev" Margin="50,160,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in1_pc" Margin="280,160,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in1_utomunk" Margin="50,210,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in1_folyokep_c" Margin="280,210,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in1_utokalapacs_j" Margin="50,260,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in1_folyokep_suly" Margin="280,260,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in1_suruseg" Margin="50,310,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in1_szin" Margin="280,310,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in1_szakszig_min" Margin="50,360,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_szakszig_max" Margin="280,360,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_utesal_min" Margin="50,410,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_utesal_max" Margin="280,410,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_foly_g_min" Margin="50,460,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_foly_g_max" Margin="280,460,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_foly_cm_min" Margin="50,510,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_foly_cm_max" Margin="280,510,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_toltotart_min" Margin="50,560,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_toltotart_max" Margin="280,560,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_beerkdatum" Margin="560,40,0,0" Style="{StaticResource tbxStyle}" RenderTransformOrigin="-0.645,3.714" Width="200" TextChanged="in1_beerkdatum_TextChanged" />
+                    <TextBox x:Name="in1_uto_date" Margin="560,110,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in1_kw" Margin="560,160,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in1_allapot" Margin="560,210,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in1_viztartalom" Margin="560,310,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in1_szakszig" Margin="560,360,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox" TextChanged="in1_szakszig_TextChanged"/>
+                    <TextBox x:Name="in1_szakszig_gy" Margin="790,360,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_utesallosag" Margin="560,410,0,0" Style="{StaticResource tbxStyle}"  PreviewTextInput="NumberValidationTextBox" TextChanged="in1_utesallosag_TextChanged"/>
+                    <TextBox x:Name="in1_utesallosag_gy" Margin="790,410,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_folykep_g_1" Margin="560,460,0,0" Style="{StaticResource tbxStyle}" Width="95" PreviewTextInput="NumberValidationTextBox2" TextChanged="in1_folykep_g_1_TextChanged"/>
+                    <TextBox x:Name="in1_folykep_g_2" Margin="665,460,0,0" Style="{StaticResource tbxStyle}" Width="95" PreviewTextInput="NumberValidationTextBox2" TextChanged="in1_folykep_g_2_TextChanged"/>
+                    <TextBox x:Name="in1_folykep_g_gy" Margin="790,460,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_folykep_cm_1" Margin="560,510,0,0" Style="{StaticResource tbxStyle}" Width="95" PreviewTextInput="NumberValidationTextBox2" TextChanged="in1_folykep_cm_1_TextChanged"/>
+                    <TextBox x:Name="in1_folykep_cm_2" Margin="665,510,0,0" Style="{StaticResource tbxStyle}" Width="95" PreviewTextInput="NumberValidationTextBox2" TextChanged="in1_folykep_cm_2_TextChanged"/>
+                    <TextBox x:Name="in1_folykep_cm_gy" Margin="790,510,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_toltoanyag" Margin="560,560,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox" TextChanged="in1_toltoanyag_TextChanged"/>
+                    <TextBox x:Name="in1_toltoanyag_gy" Margin="790,560,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in1_megjegyzes" Margin="790,110,0,0" Style="{StaticResource tbxStyle}" Height="228" VerticalContentAlignment="Top"/>
+                    <Button  x:Name="save_btn2" Content="Mentés" Style="{StaticResource saveBtn}" HorizontalAlignment="Left" Margin="790,40,0,0" VerticalAlignment="Top" Width="200" Height="28" Click="save_btn2_Click" />
+
+                    <Label x:Name="t2_szallito" Content="Szállító" Margin="50,90,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_anyagtipus" Content="Anyag típus" Margin="280,90,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_anyagnev" Content="Anyagnév" Margin="50,140,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_pc" Content="Profit Center" Margin="280,140,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_cikk" Content="Cikkszám" Margin="50,20,0,0" Style="{StaticResource labelStyle}" Width="200"/>
+                    <Label x:Name="t2_szakszigmin" Content="Szakítószilárdság min. (MPa)" Margin="50,340,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_szakszigmax" Content="Szakítószilárdság max. (MPa)" Margin="280,340,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_szin" Content="Szín" Margin="280,290,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_allapot" Content="Állapot (nyitott / zárt)*" Margin="560,190,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_viztart" Content="Víztartalom szárítás után (%)" Margin="560,290,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_suruseg" Content="Sűrűség (g / cm3)" Margin="50,290,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_utokal" Content="Ütőkalapács mérete (J)" Margin="50,240,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_utesmin" Content="Ütésállóság min. (kJ/m2)" Margin="50,390,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_utesmax" Content="Ütésállóság max. (kJ/m2)" Margin="280,390,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_folykepsuly" Content="Folyóképesség súlyterhelése (kg)" Margin="280,240,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_folyokephom" Content="Folyóképesség mérési hőm. (°C)" Margin="280,190,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_folykGmin" Content="Folyóképesség min. (g / 10 min)" Margin="50,440,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_folykGmax" Content="Folyóképesség max. (g / 10 min)" Margin="280,440,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_folykCMmin" Content="Folyóképesség min. (cm3 / 10 min)" Margin="50,490,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_folykCMmax" Content="Folyóképesség max. (cm3 / 10 min)" Margin="280,490,0,0" Style="{StaticResource labelStyle}" />
+                    <Label x:Name="t2_toltomin" Content="Töltőanyagtartalom min. (%)" Margin="50,540,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_toltomax" Content="Töltőanyagtartalom max. (%)" Margin="280,540,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_utomunk" Content="Ütőmunkához metszve ( igen / nem )" Margin="50,190,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_charge" Content="Charge" Margin="280,20,0,0" Style="{StaticResource labelStyle}" Width="200"/>
+                    <Label x:Name="t2_beerk" Content="Beérkezés dátuma" Margin="560,20,0,0" Style="{StaticResource labelStyle}" Width="200"/>
+                    <Label x:Name="t2_megjegyz" Content="Megjegyzés" Margin="790,90,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_tolto" Content="Töltőanyagtartalom (%)" Margin="560,540,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_szakszig" Content="Szakítószilárdság (MPa)" Margin="560,340,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_utes" Content="Ütésállóság (kJ/m2)" Margin="560,390,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_folykG" Content="Folyóképesség (g / 10 min)" Margin="560,440,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_folykCM" Content="Folyóképesség (cm3 / 10 min)" Margin="560,490,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_utolsodatum" Content="Utolsó mérés dátuma*" Margin="560,90,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_kw" Content="KW (munkahét)*" Margin="560,140,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_toltoGY" Content="[GY] Töltőanyagtartalom (%)" Margin="790,540,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_szakszigGY" Content="[GY] Szakítószilárdság (MPa)" Margin="790,340,0,0" Style="{StaticResource labelStyle}" RenderTransformOrigin="0.505,2.545"/>
+                    <Label x:Name="t2_utesGY" Content="[GY] Ütésállóság (kJ/m2)" Margin="790,390,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_folykGGY" Content="[GY] Folyóképesség (g / 10 min)" Margin="790,440,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t2_folykCMGY" Content="[GY] Folyóképesség (cm3 / 10 min)" Margin="790,490,0,0" Style="{StaticResource labelStyle}" Width="210"/>
+                    <Grid HorizontalAlignment="Left" Height="1" Margin="50,80,0,0" VerticalAlignment="Top" Width="940" Background="#FF8F8F8F" Panel.ZIndex="-1"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tab3" Header="Új felvitele" Style="{StaticResource tabIStyle}" Height="30" Margin="0,0,0,-2" MouseDown="tab3_MouseDown">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="694*"/>
+                        <ColumnDefinition Width="355*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="White" Offset="0"/>
+                            <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                            <GradientStop Color="#FFF0F0F0" Offset="0.479"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <TextBox x:Name="in2_cikkszam" Margin="50,40,0,0" Style="{StaticResource tbxStyle}" TextChanged="in2_cikkszam_TextChanged"/>
+                    <ComboBox x:Name="comboBox3" MaxHeight="50" HorizontalAlignment="Left" Margin="570,40,0,0" VerticalAlignment="Top" Width="420" Height="28" SelectionChanged="comboBox3_SelectionChanged" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="in2_charge" Margin="560,110,0,0" Style="{StaticResource tbxStyle}" Grid.ColumnSpan="2" />
+                    <TextBox x:Name="in2_szallito" Margin="50,110,0,0" Style="{StaticResource tbxStyle}" />
+                    <TextBox x:Name="in2_anyag_tipus" Margin="280,110,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in2_anyagnev" Margin="50,160,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in2_pc" Margin="280,160,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in2_utomunk" Margin="50,210,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in2_folyokep_c" Margin="280,210,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in2_utokalapacs_j" Margin="50,260,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in2_folyokep_suly" Margin="280,260,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in2_suruseg" Margin="50,310,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in2_szin" Margin="280,310,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="in2_szakszig_min" Margin="50,360,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in2_szakszig_max" Margin="280,360,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in2_utesal_min" Margin="50,410,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in2_utesal_max" Margin="280,410,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in2_foly_g_min" Margin="50,460,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in2_foly_g_max" Margin="280,460,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in2_foly_cm_min" Margin="50,510,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in2_foly_cm_max" Margin="280,510,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in2_toltotart_min" Margin="50,560,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in2_toltotart_max" Margin="280,560,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox"/>
+                    <TextBox x:Name="in2_beerkdatum" Margin="560,160,0,0" Style="{StaticResource tbxStyle}" RenderTransformOrigin="-0.645,3.714" Grid.ColumnSpan="2"  />
+                    <TextBox x:Name="in2_uto_date" Margin="560,210,0,0" Style="{StaticResource tbxStyle}" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="in2_kw" Margin="560,260,0,0" Style="{StaticResource tbxStyle}" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="in2_allapot" Margin="560,310,0,0" Style="{StaticResource tbxStyle}" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="in2_viztartalom" Margin="96,310,0,0" Style="{StaticResource tbxStyle}" Grid.Column="1"/>
+                    <TextBox x:Name="in2_szakszig" Margin="560,360,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="in2_szakszig_gy" Margin="96,360,0,0" Style="{StaticResource tbxStyle}"  PreviewTextInput="NumberValidationTextBox" Grid.Column="1"/>
+                    <TextBox x:Name="in2_utesallosag" Margin="560,410,0,0" Style="{StaticResource tbxStyle}"  PreviewTextInput="NumberValidationTextBox" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="in2_utesallosag_gy" Margin="96,410,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox" Grid.Column="1"/>
+                    <TextBox x:Name="in2_folykep_g_1" Margin="560,460,0,0" Style="{StaticResource tbxStyle}" Width="95" PreviewTextInput="NumberValidationTextBox2"/>
+                    <TextBox x:Name="in2_folykep_g_2" Margin="665,460,0,0" Style="{StaticResource tbxStyle}" Width="95" PreviewTextInput="NumberValidationTextBox2" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="in2_folykep_g_gy" Margin="96,460,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox" Grid.Column="1"/>
+                    <TextBox x:Name="in2_folykep_cm_1" Margin="560,510,0,0" Style="{StaticResource tbxStyle}" Width="95" PreviewTextInput="NumberValidationTextBox2"/>
+                    <TextBox x:Name="in2_folykep_cm_2" Margin="665,510,0,0" Style="{StaticResource tbxStyle}" Width="95" PreviewTextInput="NumberValidationTextBox" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="in2_folykep_cm_gy" Margin="96,510,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox" Grid.Column="1"/>
+                    <TextBox x:Name="in2_toltoanyag" Margin="560,560,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="in2_toltoanyag_gy" Margin="96,560,0,0" Style="{StaticResource tbxStyle}" PreviewTextInput="NumberValidationTextBox" Grid.Column="1"/>
+                    <TextBox x:Name="in2_megjegyzes" Margin="96,110,0,0" Style="{StaticResource tbxStyle}" Height="178" VerticalContentAlignment="Top" Grid.Column="1"/>
+
+                    <Label x:Name="t3_szallito" Content="Szállító" Margin="50,90,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_anyagtipus" Content="Anyag típus" Margin="280,90,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_anyagnev" Content="Anyagnév" Margin="50,140,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_pc" Content="Profit Center" Margin="280,140,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_comboLabel" Content="Charge / KW / Beérkezési dátum" Margin="57,18,0,0" Style="{StaticResource labelStyle}" Width="294" Grid.Column="1"/>
+                    <Label x:Name="t3_cikk" Content="Cikkszám" Margin="50,20,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_szakszigmin" Content="Szakítószilárdság min. (MPa)" Margin="50,340,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_szakszigmax" Content="Szakítószilárdság max. (MPa)" Margin="280,340,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_szin" Content="Szín" Margin="280,290,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_allapot" Content="Állapot (nyitott / zárt)*" Margin="560,290,0,0" Style="{StaticResource labelStyle}" Grid.ColumnSpan="2"/>
+                    <Label x:Name="t3_viztart" Content="Víztartalom szárítás után (%)" Margin="96,290,0,0" Style="{StaticResource labelStyle}" Grid.Column="1"/>
+                    <Label x:Name="t3_suruseg" Content="Sűrűség (g / cm3)" Margin="50,290,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_utokal" Content="Ütőkalapács mérete (J)" Margin="50,240,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_utesmin" Content="Ütésállóság min. (kJ/m2)" Margin="50,390,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_utesmax" Content="Ütésállóság max. (kJ/m2)" Margin="280,390,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_folykepsuly" Content="Folyóképesség súlyterhelése (kg)" Margin="280,240,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_folyokephom" Content="Folyóképesség mérési hőm. (°C)" Margin="280,190,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_folykGmin" Content="Folyóképesség min. (g / 10 min)" Margin="50,440,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_folykGmax" Content="Folyóképesség max. (g / 10 min)" Margin="280,440,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_folykCMmin" Content="Folyóképesség min. (cm3 / 10 min)" Margin="50,490,0,0" Style="{StaticResource labelStyle}" Width="210"/>
+                    <Label x:Name="t3_folykCMmax" Content="Folyóképesség max. (cm3 / 10 min)" Margin="280,490,0,0" Style="{StaticResource labelStyle}" Width="210"/>
+                    <Label x:Name="t3_toltomin" Content="Töltőanyagtartalom min. (%)" Margin="50,540,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_toltomax" Content="Töltőanyagtartalom max. (%)" Margin="280,540,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_utomunk" Content="Ütőmunkához metszve ( igen / nem )" Margin="50,190,0,0" Style="{StaticResource labelStyle}"/>
+                    <Label x:Name="t3_charge" Content="Charge*" Margin="560,90,0,0" Style="{StaticResource labelStyle}" Grid.ColumnSpan="2"/>
+                    <Label x:Name="t3_beerk" Content="Beérkezés dátuma*" Margin="560,140,0,0" Style="{StaticResource labelStyle}" Grid.ColumnSpan="2"/>
+                    <Label x:Name="t3_megjegyz" Content="Megjegyzés" Margin="96,90,0,0" Style="{StaticResource labelStyle}" Grid.Column="1"/>
+                    <Label x:Name="t3_tolto" Content="Töltőanyagtartalom (%)" Margin="560,540,0,0" Style="{StaticResource labelStyle}" Grid.ColumnSpan="2"/>
+                    <Label x:Name="t3_szakszig" Content="Szakítószilárdság (MPa)" Margin="560,340,0,0" Style="{StaticResource labelStyle}" Grid.ColumnSpan="2"/>
+                    <Label x:Name="t3_utes" Content="Ütésállóság (kJ/m2)" Margin="560,390,0,0" Style="{StaticResource labelStyle}" Grid.ColumnSpan="2"/>
+                    <Label x:Name="t3_folykG" Content="Folyóképesség (g / 10 min)" Margin="560,440,0,0" Style="{StaticResource labelStyle}" Grid.ColumnSpan="2"/>
+                    <Label x:Name="t3_folykCM" Content="Folyóképesség (cm3 / 10 min)" Margin="560,490,0,0" Style="{StaticResource labelStyle}" Grid.ColumnSpan="2"/>
+                    <Label x:Name="t3_utolsodatum" Content="Utolsó mérés dátuma*" Margin="560,190,0,0" Style="{StaticResource labelStyle}" Grid.ColumnSpan="2"/>
+                    <Label x:Name="t3_kw" Content="KW (munkahét)*" Margin="560,240,0,0" Style="{StaticResource labelStyle}" Grid.ColumnSpan="2"/>
+                    <Label x:Name="t3_toltoGY" Content="[GY] Töltőanyagtartalom (%)" Margin="96,540,0,0" Style="{StaticResource labelStyle}" Grid.Column="1"/>
+                    <Label x:Name="t3_szakszigGY" Content="[GY] Szakítószilárdság (MPa)" Margin="96,340,0,0" Style="{StaticResource labelStyle}" RenderTransformOrigin="0.505,2.545" Grid.Column="1"/>
+                    <Label x:Name="t3_utesGY" Content="[GY] Ütésállóság (kJ/m2)" Margin="96,390,0,0" Style="{StaticResource labelStyle}" Grid.Column="1"/>
+                    <Label x:Name="t3_folykGGY" Content="[GY] Folyóképesség (g / 10 min)" Margin="96,440,0,0" Style="{StaticResource labelStyle}" Grid.Column="1"/>
+                    <Label x:Name="t3_folykCMGY" Content="[GY] Folyóképesség (cm3 / 10 min)" Margin="96,490,0,0" Style="{StaticResource labelStyle}" Width="210" Grid.Column="1"/>
+                    <!--<TextBox x:Name="input30_3" Margin="70,110,0,0" Style="{StaticResource tbxStyle}" />
+                    <TextBox x:Name="input31_3" Margin="290,110,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input32_3" Margin="70,160,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input33_3" Margin="290,160,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input15_3" Margin="70,210,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input8_3" Margin="290,210,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input4_3" Margin="70,260,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input7_3" Margin="290,260,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input34_3" Margin="70,310,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input35_3" Margin="290,310,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input2_3" Margin="70,360,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input3_3" Margin="290,360,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input5_3" Margin="70,410,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input6_3" Margin="290,410,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input9_3" Margin="70,460,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input10_3" Margin="290,460,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input11_3" Margin="70,510,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input12_3" Margin="290,510,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input13_3" Margin="70,560,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input14_3" Margin="290,560,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input16_3" Margin="590,110,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input17_3" Margin="590,160,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input18_3" Margin="590,210,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input24_3" Margin="590,260,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input36_3" Margin="590,310,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input39_3" Margin="810,310,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input19_3" Margin="590,360,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input26_3" Margin="810,360,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input20_3" Margin="590,410,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input27_3" Margin="810,410,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input21_3" Margin="590,460,0,0" Style="{StaticResource tbxStyle}" Width="95"/>
+                    <TextBox x:Name="input21_3_2" Margin="695,460,0,0" Style="{StaticResource tbxStyle}" Width="95"/>
+                    <TextBox x:Name="input28_3" Margin="810,460,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input22_3" Margin="590,510,0,0" Style="{StaticResource tbxStyle}" Width="95"/>
+                    <TextBox x:Name="input22_3_2" Margin="695,510,0,0" Style="{StaticResource tbxStyle}" Width="95"/>
+                    <TextBox x:Name="input29_3" Margin="810,510,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input23_3" Margin="590,560,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input25_3" Margin="810,560,0,0" Style="{StaticResource tbxStyle}"/>
+                    <TextBox x:Name="input38_3" Margin="810,110,0,0" Style="{StaticResource tbxStyle}" Height="178" VerticalContentAlignment="Top"/>-->
+                    <Button  x:Name="save_btn3" Content="Mentés"  Style="{StaticResource saveBtn}" HorizontalAlignment="Left" Margin="280,40,0,0" VerticalAlignment="Top" Width="200" Height="28" Click="save_btn3_Click"/>
+
+                    <Label x:Name="t3_szallitok" Content="Szállítók:" Margin="570,20,0,0" Style="{StaticResource labelStyle}" Width="294" Grid.ColumnSpan="2"/>
+                    <Grid HorizontalAlignment="Left" Height="1" Margin="50,80,0,0" VerticalAlignment="Top" Width="940" Background="#FF8F8F8F" Grid.ColumnSpan="2"/>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+
+    </Grid>
+</UserControl>

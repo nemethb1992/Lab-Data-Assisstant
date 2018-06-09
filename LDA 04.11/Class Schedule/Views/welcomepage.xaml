@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Class_Schedule.Views.welcomepage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Class_Schedule.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="770" d:DesignWidth="1200">
+    <Grid>
+
+
+        <TextBox x:Name="user_inp" Padding="7" Width="300" Text="Felhasználónév" Panel.ZIndex="9999" Style="{StaticResource userTbx}"  GotFocus="user_inp_GotFocus" LostFocus="user_inp_LostFocus" Margin="148,186,752,0" KeyUp="user_inp_KeyUp"/>
+        <PasswordBox  x:Name="pass_inp" Padding="7" Width="300" Panel.ZIndex="9999" Style="{StaticResource passPwx}"  GotFocus="pass_inp_GotFocus" LostFocus="pass_inp_LostFocus" Margin="148,252,752,0" KeyUp="pass_inp_KeyUp"/>
+        <Button x:Name="loginBtn" Content="Tovább" Style="{StaticResource welcomeBtn}" Panel.ZIndex="9999" Margin="148,326,752,384"  Click="loginBtn_Click" Width="300"/>
+        <TextBox x:Name ="pass_label" BorderThickness="0" Padding="7" Panel.ZIndex="9998" Style="{StaticResource userTbx}"  Text="Jelszó" Margin="148,254,752,0"/>
+        <TextBlock x:Name="info_out" Style="{StaticResource infoTbl}" Margin="77,126,663,584" Width="360"/>
+        <Button x:Name="registraionBtn" Content="Regisztráció" Style="{StaticResource regBtn}"  Margin="149,396,751,344" Click="registraionBtn_Click"/>
+        <Button x:Name="welcome_minimize" Content="__" Style="{StaticResource logoutBtn}" Margin="1112,0,44,730"  Width="44" Click="welcome_minimize_Click"/>
+        <Button x:Name="welcome_x"  Content="X" Style="{StaticResource logoutBtn}" Margin="1156,0,0,730"   Width="44" Click="welcome_x_Click" />
+        <Button x:Name="btn_hu"  Content="HU" Style="{StaticResource logoutBtn}" Margin="1032,0,142,745" FontSize="12"  Width="26" Height="25" Click="btn_hu_Click" />
+        <Button x:Name="btn_de"  Content="DE" Style="{StaticResource logoutBtn}" Margin="1058,0,118,745" FontSize="12"   Width="24" Height="25" Click="btn_de_Click" />
+        <Button x:Name="btn_en"  Content="EN" Style="{StaticResource logoutBtn}" Margin="1082,0,92,745" FontSize="12"   Width="26" Height="25" Click="btn_en_Click" />
+    </Grid>
+</UserControl>

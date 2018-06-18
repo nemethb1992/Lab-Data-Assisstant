@@ -946,26 +946,32 @@ namespace Class_Schedule.Views
                 pc.idozito(main_info_out);
             }
         }
-        private void input_cikkszam_TextChanged(object sender, TextChangedEventArgs e)
+        //private void input_cikkszam_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    //Thread runThread = new Thread(() => searched_cikk_listView_loader());
+        //    //runThread.Start();
+        //    searched_cikk_listView_loader();
+        //}
+        //private void input_charge_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    searched_cikk_listView_loader();
+        //}
+        //private void input_beerk_datum_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    searched_cikk_listView_loader();
+        //}
+        //private void input_anyagnev_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    searched_cikk_listView_loader();
+        //}
+        //private void input_szallito_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    searched_cikk_listView_loader();
+        //}
+        private void input_TextChanged_Parser(object sender, TextChangedEventArgs e)
         {
-            //Thread runThread = new Thread(() => searched_cikk_listView_loader());
-            //runThread.Start();
-            searched_cikk_listView_loader();
-        }
-        private void input_charge_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            searched_cikk_listView_loader();
-        }
-        private void input_beerk_datum_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            searched_cikk_listView_loader();
-        }
-        private void input_anyagnev_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            searched_cikk_listView_loader();
-        }
-        private void input_szallito_TextChanged(object sender, TextChangedEventArgs e)
-        {
+            TextBox tbx = sender as TextBox;
+            MessageBox.Show(tbx.Text);
             searched_cikk_listView_loader();
         }
         private void save_btn2_Click(object sender, RoutedEventArgs e)
